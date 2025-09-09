@@ -8,7 +8,7 @@ module two_bit_demux(
     output  logic   [1:0]   control
 );
 
-	enable ? (assign control[1] = 1 & assign control[0] = 0) : (assign control[1] = 0 & assign control[0] = 1);
+	assign control = enable ? (2'b10) : (2'b01);
 
 
 endmodule

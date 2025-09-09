@@ -1,5 +1,5 @@
-// sv_tb_template.sv
-// testbench file template
+// seven_seg_disp_tb.sv
+// led_adder testbench file 
 // george davis gdavis@hmc.edu
 // 8/31/2025
 
@@ -7,22 +7,24 @@
 
 	`timescale 1ps/1ps //timescale <time_unit>/<time_precision>
 
-module sv_tb_template; //change to DUT module name
+module led_adder;
 	
 	logic	clk;
 	logic	reset;
+	logic	i, j;
+	
 	
 	//input/output variables
-	logic	[2:0] in;   //change to DUT input
-	logic   [2:0] out, out_expected;  //change to DUT output
+	logic	[3:0] sA, sB;  
+	logic   [4:0] led, led_expected;
+
 
 	//32 bit vectornum indicates the number of test vectors applied
 	//32 bit errors indicates number of errros found
-	logic	[31:0]	vectornum, errors;
-	logic	[5:0]	testvectors[10000:0]; //change bit length to match DUT input/output
+	logic [31:0]	errors;
 	
 	//instatiate device to be tested
-	sv_tb_template dut(in, out); //change to DUT input/output
+	led_adder dut(sA, sB, led);
 
     //generates clock 
 	always
@@ -33,10 +35,7 @@ module sv_tb_template; //change to DUT module name
 	
 	initial
 		begin
-			$readmemb("sv_tb_template.tv", testvectors); //change to DUT .tv file
-			
-			//Initialize 0 vectors tested and errors
-			vectornum = 0;
+			//Initialize 0 errors
 			errors = 0; 
 			
 			//Pulse reset to begin test
@@ -48,23 +47,23 @@ module sv_tb_template; //change to DUT module name
 			begin
 				#1;
 				//loads test vectors into inputs and expected outputs
-				{in,out_expected} = testvectors[vectornum]; //change to DUT input/output
+				if 
 			end
 	
     
 		always @(negedge clk)
 			if(~reset) begin
 				//detect error by comparing actual output expected output from testvectors
-				if (out != out_expected) begin //change to DUT output
+				if (seg != seg_expected) begin
 					//display input/outputs that generated the error
-					$display("Error: inputs = %b", {in});   //change to DUT input
-					$display(" outputs = %b", {out});       //change to DUT output
+					$display("Error: inputs = %b", {s});
+					$display(" outputs = %b", {seg});
 					errors = errors + 1;
 				end
 
 				vectornum = vectornum + 1;
 				
-				if (testvectors[vectornum] == 5'bX) begin   //change bit length to DUT input/output combined
+				if (testvectors[vectornum] == 11'bX) begin
 					$display("%d tests completed with %d errors", vectornum, errors);
 					$stop;
 				end

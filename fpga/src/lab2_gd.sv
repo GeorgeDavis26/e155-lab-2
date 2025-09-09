@@ -4,15 +4,16 @@
 // 9/4/2025
 
 module top (
-	input	logic			clk, reset,
+//	input	logic			reset, clk,
 	input	logic   [3:0]   sA,
     input   logic   [3:0]   sB,
-    output  logic   [1:0]   control
+    output  logic   [1:0]   control,
 	output	logic   [6:0]   seg,
 	output	logic	[4:0]	led
 );
 
     //creating enable, multiplexed wire s, along with the counting variable used in the divider
+	logic			clk;
 	logic	        enable;
     logic   [3:0]   s;
 	logic	[16:0]	counter = 0;
@@ -24,8 +25,8 @@ module top (
 	// Simple clock divider down to 60 Hz from 12MHz pin 41
 	always_ff @(posedge clk)
 		begin
-			if(reset) counter = 0; 
-			else if(counter == 'd100000) begin
+//			if(reset) counter = 0; 
+			if(counter == 'd100000) begin
 				enable  = ~enable;	//flip enable
 				counter = 0;		//reset counter
 				end

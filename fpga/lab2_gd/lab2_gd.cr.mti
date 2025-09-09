@@ -1,0 +1,15 @@
+C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module two_bit_demux
+
+Top level modules:
+	two_bit_demux
+
+} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/switch_mux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/switch_mux.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module switch_mux
+
+Top level modules:
+	switch_mux
+
+} {} {}}

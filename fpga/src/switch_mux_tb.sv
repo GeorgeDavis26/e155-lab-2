@@ -13,17 +13,17 @@ module switch_mux;
 	logic	reset;
 	
 	//input/output variables
-    logic           enable
-	logic	[3:0]   switchA, switchB;
-	logic   [3:0]   switch_out , switch_out_expected;
+    logic           enable;
+	logic	[3:0]   sA, sB;
+	logic   [3:0]   s, s_expected;
 
 	//32 bit vectornum indicates the number of test vectors applied
 	//32 bit errors indicates number of errros found
 	logic	[31:0]	vectornum, errors;
-	logic	[12:0]	testvectors[10000:0]; //change bit length to match DUT input/output
+	logic	[11:0]	testvectors[10000:0]; //change bit length to match DUT input/output
 	
 	//instatiate device to be tested
-	switch_mux dut(enable, switchA, switchB, switch_out); //change to DUT input/output
+	switch_mux dut(enable, sA, sB, s); //change to DUT input/output
 
     //generates clock 
 	always
@@ -49,14 +49,14 @@ module switch_mux;
 			begin
 				#1;
 				//loads test vectors into inputs and expected outputs
-				{in,out_expected} = testvectors[vectornum]; //change to DUT input/output
+				{sA, sB ,s_expected} = testvectors[vectornum]; //change to DUT input/output
 			end
 	
     
 		always @(negedge clk)
 			if(~reset) begin
 				//detect error by comparing actual output expected output from testvectors
-				if (out != out_expected) begin //change to DUT output
+				if (s != s_expected) begin //change to DUT output
 					//display input/outputs that generated the error
 					$display("Error: inputs = %b", {in});   //change to DUT input
 					$display(" outputs = %b", {out});       //change to DUT output
@@ -65,7 +65,7 @@ module switch_mux;
 
 				vectornum = vectornum + 1;
 				
-				if (testvectors[vectornum] == 5'bX) begin   //change bit length to DUT input/output combined
+				if (testvectors[vectornum] == 12'bX) begin   //change bit length to DUT input/output combined
 					$display("%d tests completed with %d errors", vectornum, errors);
 					$stop;
 				end

@@ -19,7 +19,7 @@ module lab2_gd_tb;
 
 	//32 bit vectornum indicates the number of test vectors applied
 	//32 bit errors indicates number of errros found
-	logic	[31:0]	vectornum_A, vectornum_B, errors;
+	logic	[31:0]	vectornum_A, vectornum_B, errors_A, errors_B, errors_led;
 	logic	[16:0]	testvectors_A[10000:0], testvectors_B[10000:0];
 	
 	//instatiate device to be tested
@@ -75,7 +75,7 @@ module lab2_gd_tb;
 					//display input/outputs that generated the error
 					$display("Error: inputs = %b", {sA, sB});   
 					$display(" outputs = %b", {control, seg, led}); 
-					errors = errors + 1;
+					errors_B = errors_B + 1;
 				end
 				sB = sB + 4'b0001;
 				vectornum_B = vectornum_B + 1;
@@ -103,7 +103,7 @@ module lab2_gd_tb;
 					//display input/outputs that generated the error
 					$display("Error: inputs = %b", {sA, sB});   
 					$display(" outputs = %b", {control, seg, led}); 
-					errors = errors + 1;
+					errors_A = errors_A + 1;
 				end
 				sB = sB + 4'b0001;
 				vectornum_B = vectornum_B + 1;
@@ -123,9 +123,8 @@ module lab2_gd_tb;
 					//display input/outputs that generated the error
 					$display("Error: inputs = %b", {sA, sB});   
 					$display(" outputs = %b", {control, seg, led}); 
-					errors = errors + 1;
+					errors_led = errors_led + 1;
 					end
-			$display("%d led tests completed with %d errors", (sA * sB), errors_led);
-		end
+		$display("%d led tests completed with %d errors", (sA * sB), errors_led);
 		$stop
 endmodule 

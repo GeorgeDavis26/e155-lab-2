@@ -14,7 +14,7 @@ module sv_tb_template; //change to DUT module name
 	
 	//input/output variables
 	logic		  enable;
-	logic   [1:0] output, output_expected;
+	logic   [1:0] control, control_expected;
 
 	//32 bit vectornum indicates the number of test vectors applied
 	//32 bit errors indicates number of errros found
@@ -48,7 +48,7 @@ module sv_tb_template; //change to DUT module name
 			begin
 				#1;
 				//loads test vectors into inputs and expected outputs
-				{output,out_expected} = testvectors[vectornum];
+				{control, control_expected} = testvectors[vectornum];
 			end
 	
     

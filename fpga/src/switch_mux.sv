@@ -11,6 +11,6 @@ module switch_mux(
     output  logic   [3:0]   s
 );
 
-	enable ? (assign s = sB) : (assign s = sA);
+	assign s = enable ? (sB) : (sA);
 
 endmodule
