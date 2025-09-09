@@ -22,7 +22,7 @@ module top (
 	// Internal 48MHz high-speed oscillator
 	HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 	
-	// Simple clock divider down to 60 Hz from 12MHz pin 41
+	// Simple clock divider down to 240 Hz from 48MHz
 	always_ff @(posedge clk)
 		begin
 //			if(reset) counter = 0; 

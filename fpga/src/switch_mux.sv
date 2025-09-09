@@ -10,7 +10,7 @@ module switch_mux(
     input   logic   [3:0]   sB,
     output  logic   [3:0]   s
 );
-
+    //sets multiplexed wire to input switches depending on enable
 	assign s = enable ? (sB) : (sA);
 
 endmodule
