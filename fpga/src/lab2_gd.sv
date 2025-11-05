@@ -4,7 +4,6 @@
 // 9/4/2025
 
 module top (
-//	input	logic			reset, clk,
 	input	logic   [3:0]   sA,
     input   logic   [3:0]   sB,
     output  logic   [1:0]   control,
