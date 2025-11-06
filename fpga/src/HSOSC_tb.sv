@@ -1,5 +1,5 @@
 // lab2_HSOSC_tb.sv
-// testbench file for the top level module of the keypad decoder lab
+// testbench file for the  hsosc module of the keypad decoder lab
 // George Davis
 // gdavis@hmc.edu
 // 9/15/25
