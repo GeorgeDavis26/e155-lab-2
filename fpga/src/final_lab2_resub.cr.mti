@@ -1,11 +1,4 @@
-C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd_tb.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module lab2_gd_tb
-
-Top level modules:
-	lab2_gd_tb
-
-} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/led_adder.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/led_adder.sv
+C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/led_adder.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/led_adder.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module led_adder
 
@@ -33,6 +26,13 @@ Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 Top level modules:
 	lab2_HSOSC_tb
 
+} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module two_bit_demux
+
+Top level modules:
+	two_bit_demux
+
 } {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/seven_seg_disp.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/seven_seg_disp.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 -- Compiling module seven_seg_disp
@@ -40,12 +40,19 @@ Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 Top level modules:
 	seven_seg_disp
 
-} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux.sv
+} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module two_bit_demux
+-- Compiling module lab2_gd
 
 Top level modules:
-	two_bit_demux
+	lab2_gd
+
+} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux_tb.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module testbench_two_bit_demux
+
+Top level modules:
+	testbench_two_bit_demux
 
 } {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/seven_seg_disp_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/seven_seg_disp_tb.sv
 Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
@@ -60,19 +67,5 @@ Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
 
 Top level modules:
 	switch_mux
-
-} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/two_bit_demux_tb.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module sv_tb_template
-
-Top level modules:
-	sv_tb_template
-
-} {} {}} C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gdavis/Desktop/e155-lab-2/fpga/src/lab2_gd.sv
-Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
--- Compiling module lab2_gd
-
-Top level modules:
-	lab2_gd
 
 } {} {}}

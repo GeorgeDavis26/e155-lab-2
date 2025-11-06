@@ -1,4 +1,4 @@
-// lab3_gd_top_tb.sv
+// lab2_HSOSC_tb.sv
 // testbench file for the top level module of the keypad decoder lab
 // George Davis
 // gdavis@hmc.edu
@@ -6,43 +6,31 @@
 
 `timescale 1 ns/1 ns
 
-module lab3_gd_top_tb;
+module lab2_HSOSC_tb;
 
-    logic           reset;
-    logic   [3:0]   row_keys;
-
+    logic   [3:0]   sA;
+    logic   [3:0]   sB;
     logic   [1:0]   control;
     logic   [6:0]   seg;
-    logic   [3:0]   col_keys;
+    logic	[4:0]	led;
 
-    logic   [31:0]  errors;
+    logic [31:0] errors;
 
-    logic           clk; // only for sim
-
-    lab3_gd_top dut(clk, reset, row_keys, control, seg, col_keys);
-
-    //generates clock 
-
-    always begin
-        clk <= 1; #5;
-        clk <= 0; #5;
-    end
-
+    lab2_gd dut(sA, sB, control, seg, led);
 
     initial
         begin
             errors = 0;
-			//Pulse reset to begin test
-			reset <= 1; # 22; reset <= 0;
 
 
-          #100000;
+          #134988
 
-            assert(dut.clk == 1) else $error("ERROR: HSOSC not turning on"); errors = errors + 1;
-
+            assert(dut.clk == 1) else begin
+                $error("ERROR: HSOSC not turning on time: %0t", $time); 
+                errors = errors + 1;
+            end
             $error("Tests completed with %b errors", errors);
             $stop;
-
         end
 
 endmodule

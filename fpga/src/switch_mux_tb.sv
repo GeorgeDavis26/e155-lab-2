@@ -12,9 +12,9 @@ module switch_mux_tb;
 	//input/output variables
     logic           enable;
 	logic	[3:0]   sA, sB;
-	int     		a, b;
 	logic   [3:0]   s;
 
+	int i, j;
 	//32 bit vectornum indicates the number of test vectors applied
 	//32 bit errors indicates number of errros found
 	logic	[31:0] errors;
@@ -22,35 +22,36 @@ module switch_mux_tb;
 	//instatiate device to be tested
 	switch_mux dut(enable, sA, sB, s); 
 
-	initial
+	initial begin
 		errors = 0;
-
-		for (a = 0; a < 16; a = a + 1) begin
-			for(b = 0; b < 16; b = b + 1)begin
-
-				sA = a;
-				sB = b;
-				#1
+		#5;
+		for (int i = 0; i < 16; i++)begin
+			for(int j = 0; j < 16; j++)begin
+				sA = i;
+				sB = j;
+				#5;
 				enable = 0;
-				assert(s == sA) else begin
+				#5;
+				if(s != sA) begin
 					$error("Error: inputs = %b", {sA, sB}); 
 					$error(" outputs = %b", {s});
 					errors = errors + 1;
 				end
-				#5
+				#5;
 				enable = 1;
-				assert(s == sB) else begin
+				#5;
+				if(s != sB)  begin
 					$error("Error: inputs = %b", {sA, sB}); 
 					$error(" outputs = %b", {s});
 					errors = errors + 1;
 				end
-				#4
-
-				if(a == 15 && b == 15)begin
-					$error("%d tests completed with %d errors", (a*b), errors);
+				#1;
+				if(sA == 15 && sB == 15)begin
+					$error("%d tests completed with %d errors", (i*j), errors);
 					$stop;
 				end
+				#1;
 			end
 		end
-
+	end
 endmodule

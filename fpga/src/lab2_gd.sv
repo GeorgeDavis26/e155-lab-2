@@ -3,7 +3,7 @@
 // george davis gdavis@hmc.edu
 // 9/4/2025
 
-module top (
+module lab2_gd (
 	input	logic   [3:0]   sA,
     input   logic   [3:0]   sB,
     output  logic   [1:0]   control,
@@ -13,7 +13,7 @@ module top (
 
     //creating enable, multiplexed wire s, along with the counting variable used in the divider
 	logic			clk;
-	logic	        enable;
+	logic	        enable = 0;
     logic   [3:0]   s;
 	logic	[16:0]	counter = 0;
 
@@ -25,7 +25,8 @@ module top (
 	always_ff @(posedge clk)
 		begin
 //			if(reset) counter = 0; 
-			if(counter == 'd100000) begin
+			if(counter == 'd10) begin //for testbench only!
+			//if(counter == 'd100000) begin
 				enable  = ~enable;	//flip enable
 				counter = 0;		//reset counter
 				end

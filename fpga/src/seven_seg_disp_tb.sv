@@ -65,7 +65,7 @@ module seven_seg_disp_tb;
 
 				vectornum = vectornum + 1;
 				
-				if (testvectors[vectornum] == 11'bX) begin
+				if (testvectors[vectornum] === 11'bX) begin
 					$display("%d tests completed with %d errors", vectornum, errors);
 					$stop;
 				end
